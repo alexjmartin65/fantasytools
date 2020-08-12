@@ -1,0 +1,115 @@
+
+.nav-container {
+    margin: 20px 0;
+}
+
+
+.table tbody td { 
+    position: relative; 
+}
+
+input[type=checkbox]{
+    z-index: 10000;
+    height: 18px;
+    width: 18px;
+}
+
+.table tbody tr.strikeout td:before {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-bottom: 1px solid #111;
+    width: 100%;
+  }
+  
+  .table tbody tr.strikeout td:after {
+    content: "\00B7";
+    font-size: 1px;
+  }
+
+  .table tbody tr td.smol-strike:before {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-bottom: 1px solid #111;
+    width: 100%;
+  }
+  
+  .table tbody tr td.smol-strike:after {
+    content: "\00B7";
+    font-size: 1px;
+  }
+
+.RB {
+    background-color: rgba(73,212,252,0.54);
+}
+
+.WR {
+    background-color: rgba(41,207,140,0.54);
+}
+
+.TE {
+    background-color: rgba(240,173,78,0.46);
+}
+
+.QB {
+    background-color: rgba(255,0,0,0.29);
+}
+
+.DST {
+    background-color: rgba(255, 140, 0, 0.52);
+}
+
+.K {
+    background-color: rgba(255, 0, 251, 0.44);
+}
+
+.mine {
+    background-color: #f00;
+}
+
+._1 {
+    background-color: rgba(240,173,78,0.46);
+}
+
+._2 {
+    background-color: rgba(240,245,117,0.71);
+}
+
+._3 {
+    background-color: rgba(118,240,78,0.57);
+}
+
+._4 {
+    background-color: rgba(78,228,240,0.52)
+}
+
+._5 {
+    background-color: rgba(112,78,240,0.39) !important;
+}
+
+._6 {
+    background-color: rgba(255,0,0,0.34) !important;
+}
+
+._7 {
+    background-color: rgba(240,173,78,0.46) !important;
+}
+
+._8 {
+    background-color: rgba(240,245,117,0.71) !important;
+}
+
+._9 {
+    background-color: rgba(118,240,78,0.57) !important;
+}
+
+._10 {
+    background-color: rgba(78,228,240,0.52) !important;
+}
+
+._11 {
+    background-color: rgba(112,78,240,0.39) !important;
+}

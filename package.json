@@ -1,0 +1,25 @@
+{
+  "name": "fantasytools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexjmartin65/fantasytools.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexjmartin65/fantasytools/issues"
+  },
+  "homepage": "https://github.com/alexjmartin65/fantasytools#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1",
+    "jquery-csv": "^1.0.11",
+    "mustache": "^4.0.1"
+  }
+}

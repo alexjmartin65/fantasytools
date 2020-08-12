@@ -1,6 +1,221 @@
-<head>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="main.css" />
 
-</head>
-<body>
-    <h1>Test</h1>
-</body>
+    <title>Draft Tool</title>
+    </head>
+    <body>  
+        
+        <h1>
+            Fantasy Rankings
+        </h1>
+
+        <div class="nav-container">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link active" data-container="main-rankings" href="#">Main Rankings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-container="tiers" href="#">Tiers</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main-rankings table-container">
+
+            <h2>
+                Main Rankings
+            </h2>
+
+            <div style="margin: 15px 0;">
+                New CSV File:
+                <input type="file" id="uploadCsv"/>
+            </div>
+
+            <div style="margin: 15px 0;">
+                Exported CSV File:
+                <input type="file" id="exportedCsv"/>
+            </div>
+
+            <div style="margin: 15px 0;">
+                <button type="button" class="btn btn-primary export">Export</button>
+            </div>
+
+            <div class="container-fluid main-table-container" style="display:none;">
+                <table class="table main-table">
+                    <thead>
+                        <tr>
+                            <td>
+                                Not Me
+                            </td>
+                            <td>
+                                Me
+                            </td>
+                            <td>
+                                Name
+                            </td>
+                            <td>
+                                ETR Rank
+                            </td>
+                            <td>
+                                Team
+                            </td>
+                            <td >
+                                Position
+                            </td>
+                            <td>
+                                ETR Position Rank
+                            </td>
+                            <td>
+                                ADP
+                            </td>
+                            <td>
+                                ADP Position Rank
+                            </td>
+                            <td>
+                                ADP Diff
+                            </td>
+                            <td>
+                                Drafted At
+                            </td>
+                            <td>
+                                Notes
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="tiers table-container" style="display:none;">
+
+            <h2>
+                Tiers
+            </h2>
+
+            <div style="margin: 15px 0;">
+                CSV File:
+                <input type="file" id="tiersCsv" />
+            </div>
+
+            <table class="table tiers-table" style="display:none;">
+                <thead>
+                    <tr>
+                        <td>
+                            Rank
+                        </td>
+                        <td>
+                            WR
+                        </td>
+                        <td>
+                            RB
+                        </td>
+                        <td>
+                            TE
+                        </td>
+                        <td>
+                            QB
+                        </td>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="node_modules/jquery-csv/src/jquery.csv.min.js"></script>
+        <script type="text/javascript" src="node_modules/mustache/mustache.min.js"></script>
+
+        <script id="main-template" type="x-tmpl-mustache">
+            {{#.}}
+            {{#notMine}}
+                <tr class='{{ position }} strikeout'>
+            {{/notMine}}
+            {{#mine}}
+                <tr class='{{ position }} mine'>
+            {{/mine}}
+            {{#neither}}
+                <tr class='{{ position }}'>
+            {{/neither}}
+                    <td class='notMineContainer'>
+                        {{#notMine}}
+                            <input type='checkbox' class='notMine' checked />
+                        {{/notMine}}
+                        {{^notMine}}
+                            <input type='checkbox' class='notMine' />
+                        {{/notMine}}
+                    </td>
+                    <td class='mineContainer'>
+                        {{#mine}}
+                            <input type='checkbox' class='mine' checked />
+                        {{/mine}}
+                        {{^mine}}
+                            <input type='checkbox' class='mine' />
+                        {{/mine}}
+                    </td>
+                    <td class='playerName'>
+                        {{ name }}
+                    </td>
+                    <td>
+                        {{ etrRank }}
+                    </td>
+                    <td>
+                        {{ team }}
+                    </td>
+                    <td>
+                        {{ position }}
+                    </td>
+                    <td>
+                        {{ etrPositionRank }}
+                    </td>
+                    <td>
+                        {{ adp }}
+                    </td>
+                    <td>
+                        {{ adpPositionRank }}
+                    </td>
+                    <td>
+                        {{ adpDiff }}
+                    </td>
+                    <td class='draftedAt'>
+                        {{ draftedAt }}
+                    </td>
+                    <td>
+                        {{ notes }}
+                    </td>
+                </tr>
+            {{/.}}
+        </script>
+
+        <script id="tier-template" type="x-tmpl-mustache">
+            {{#.}}
+                <tr>
+                    <td>
+                        {{ rank }}
+                    </td>
+                    <td class='{{ wrRank }}'>
+                        {{ wrName }}
+                    </td>
+                    <td class='{{ rbRank }}'>
+                        {{ rbName }}
+                    </td>
+                    <td class='{{ teRank }}'>
+                        {{ teName }}
+                    </td>
+                    <td class='{{ qbRank }}'>
+                        {{ qbName }}
+                    </td>
+                </tr>
+            {{/.}}
+        </script>
+
+        <script type="text/javascript" src="main.js"></script>
+    </body>
+</html>
