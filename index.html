@@ -9,12 +9,8 @@
     <title>Draft Tool</title>
     </head>
     <body>  
-        
-        <h1>
-            Fantasy Rankings
-        </h1>
 
-        <div class="nav-container">
+        <nav class="nav-container navbar fixed-top navbar-light bg-light">
             <ul class="nav nav-pills">
                 <li class="nav-item">
                     <a class="nav-link active" data-container="main-rankings" href="#">Main Rankings</a>
@@ -23,7 +19,7 @@
                     <a class="nav-link" data-container="tiers" href="#">Tiers</a>
                 </li>
             </ul>
-        </div>
+        </nav>
 
         <div class="main-rankings table-container">
 
@@ -43,48 +39,49 @@
 
             <div style="margin: 15px 0;">
                 <button type="button" class="btn btn-primary export">Export</button>
+                <button type="button" class="btn btn-primary hidden" style="margin-left: 15px;">Toggle Hidden</button>
             </div>
 
             <div class="container-fluid main-table-container" style="display:none;">
-                <table class="table main-table">
+                <table class="table main-table table-responsive">
                     <thead>
                         <tr>
-                            <td>
+                            <th>
                                 Not Me
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 Me
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 Name
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 ETR Rank
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 Team
-                            </td>
-                            <td >
+                            </th>
+                            <th >
                                 Position
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 ETR Position Rank
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 ADP
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 ADP Position Rank
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 ADP Diff
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 Drafted At
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 Notes
-                            </td>
+                            </th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -104,24 +101,28 @@
                 <input type="file" id="tiersCsv" />
             </div>
 
-            <table class="table tiers-table" style="display:none;">
+            <div style="margin: 15px 0;">
+                <button type="button" class="btn btn-primary hidden-tiers" style="margin-left: 15px;">Toggle Hidden</button>
+            </div>
+
+            <table class="table tiers-table table-responsive" style="display:none;">
                 <thead>
                     <tr>
-                        <td>
+                        <th>
                             Rank
-                        </td>
-                        <td>
+                        </th>
+                        <th>
                             WR
-                        </td>
-                        <td>
+                        </th>
+                        <th>
                             RB
-                        </td>
-                        <td>
+                        </th>
+                        <th>
                             TE
-                        </td>
-                        <td>
+                        </th>
+                        <th>
                             QB
-                        </td>
+                        </th>
                     </tr>
                 </thead>
                 <tbody></tbody>

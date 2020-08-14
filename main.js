@@ -16,6 +16,8 @@ $(document).ready(function(){
     $("#exportedCsv").change(exportedUploadCsv);
     $("#tiersCsv").change(tierUploadCsv);
     $(".export").click(exportMain);
+    $(".hidden").click(toggleHidden);
+    $(".hidden-tiers").click(toggleTiers);
 });
 
 function toggleContainer() {
@@ -45,6 +47,7 @@ function notMineClicked() {
 
     var playerName = tr.find(".playerName").text().trim();
     strikeTieredPlayer(playerName);
+    tr.slideUp();
 }
 
 function mineClicked() {
@@ -65,6 +68,7 @@ function mineClicked() {
 
     var playerName = tr.find(".playerName").text().trim();
     strikeTieredPlayer(playerName);
+    tr.slideUp();
 }
 
 function strikeTieredPlayer(playerName){
@@ -78,6 +82,15 @@ function strikeTieredPlayer(playerName){
         else if (tierPlayerName.toLowerCase() == playerName.toLowerCase() && cell.hasClass("smol-strike")) {
             cell.removeClass("smol-strike");
         }
+
+        var tr = cell.parent();
+        if (tr.find(".smol-strike").length == 4){
+            tr.addClass("hideTiers");
+        }
+        else {
+            tr.removeClass("hideTiers");
+        }
+
     });
 }
 
@@ -114,10 +127,10 @@ function parseMainCsvData(csvData) {
             mine: false,
             notMine: false,
             neither: true,
-            name: line[0],
+            name: line[0].replace(/"/g, ''),
             etrRank: line[1],
             team: line[2],
-            position: line[3],
+            position: line[3] ? line[3].replace(/"/g, '') : '',
             etrPositionRank: line[4],
             adp: line[5],
             adpPositionRank: line[6],
@@ -313,5 +326,11 @@ function exportMain(){
 
 };
 
+function toggleHidden() {
+    $( ".table tbody .strikeout").toggle();
+    $( ".table tbody tr.mine").toggle();
+}
 
-
+function toggleTiers() {
+    $(".hideTiers").toggle();
+}

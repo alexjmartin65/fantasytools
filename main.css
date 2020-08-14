@@ -1,6 +1,10 @@
 
 .nav-container {
-    margin: 20px 0;
+    /* margin: 20px 0; */
+}
+
+.table-container {
+    margin-top: 96px;
 }
 
 
@@ -41,6 +45,16 @@ input[type=checkbox]{
     content: "\00B7";
     font-size: 1px;
   }
+
+.table {
+    overflow-y: auto; 
+    height: 850px; 
+}
+
+.table tr.hideTiers {
+    display: none;
+}
+
 
 .RB {
     background-color: rgba(73,212,252,0.54);
