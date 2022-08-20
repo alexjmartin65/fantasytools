@@ -18,6 +18,9 @@
                 <li class="nav-item">
                     <a class="nav-link" data-container="tiers" href="#">Tiers</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-container="underdogcsv" href="#">CSV</a>
+                </li>
             </ul>
         </nav>
 
@@ -59,25 +62,13 @@
                                 ETR Rank
                             </th>
                             <th>
-                                Team
+                                Recent Change
                             </th>
                             <th >
-                                Position
+                                Position Rank
                             </th>
                             <th>
                                 ETR Position Rank
-                            </th>
-                            <th>
-                                ADP
-                            </th>
-                            <th>
-                                ADP Position Rank
-                            </th>
-                            <th>
-                                ADP Diff
-                            </th>
-                            <th>
-                                Drafted At
                             </th>
                             <th>
                                 Notes
@@ -109,24 +100,49 @@
                 <thead>
                     <tr>
                         <th>
-                            Rank
+                            WR
                         </th>
                         <th>
-                            WR
+                            WR Rank
                         </th>
                         <th>
                             RB
                         </th>
                         <th>
+                            RB Rank
+                        </th>
+                        <th>
                             TE
                         </th>
                         <th>
+                            TE Rank
+                        </th>
+                        <th>
                             QB
+                        </th>
+                        <th>
+                            QB Rank
                         </th>
                     </tr>
                 </thead>
                 <tbody></tbody>
             </table>
+        </div>
+
+        <div class="underdogcsv table-container" style="display:none;">
+            <div style="margin: 15px 0;">
+                ETR CSV File:
+                <input type="file" id="etrCSV"/>
+            </div>
+
+            <div style="margin: 15px 0;">
+                Underdog CSV File:
+                <input type="file" id="underogCSV"/>
+            </div>
+
+            <div style="margin: 15px 0;">
+                <button type="button" class="btn btn-primary translate">Translate</button>
+            </div>
         </div>
 
         <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
@@ -168,28 +184,13 @@
                         {{ etrRank }}
                     </td>
                     <td>
-                        {{ team }}
-                    </td>
-                    <td>
-                        {{ position }}
+                        {{ recent }}
                     </td>
                     <td>
                         {{ etrPositionRank }}
                     </td>
                     <td>
-                        {{ adp }}
-                    </td>
-                    <td>
-                        {{ adpPositionRank }}
-                    </td>
-                    <td>
-                        {{ adpDiff }}
-                    </td>
-                    <td class='draftedAt'>
-                        {{ draftedAt }}
-                    </td>
-                    <td>
-                        {{ notes }}
+                        {{ Notes }}
                     </td>
                 </tr>
             {{/.}}
@@ -198,20 +199,29 @@
         <script id="tier-template" type="x-tmpl-mustache">
             {{#.}}
                 <tr>
-                    <td>
-                        {{ rank }}
-                    </td>
                     <td class='{{ wrRank }}'>
                         {{ wrName }}
+                    </td>
+                    <td class='{{ wrRank }}'>
+                        {{ wrRank }}
                     </td>
                     <td class='{{ rbRank }}'>
                         {{ rbName }}
                     </td>
+                    <td class='{{ rbRank }}'>
+                        {{ rbRank }}
+                    </td>
                     <td class='{{ teRank }}'>
                         {{ teName }}
                     </td>
+                    <td class='{{ teRank }}'>
+                        {{ teRank }}
+                    </td>
                     <td class='{{ qbRank }}'>
                         {{ qbName }}
+                    </td>
+                    <td class='{{ qbRank }}'>
+                        {{ qbRank }}
                     </td>
                 </tr>
             {{/.}}

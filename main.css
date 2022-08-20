@@ -55,6 +55,11 @@ input[type=checkbox]{
     display: none;
 }
 
+.hide-me {
+    display: none !important;
+}
+
+
 
 .RB {
     background-color: rgba(73,212,252,0.54);
