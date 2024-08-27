@@ -128,15 +128,15 @@ function parseMainCsvData(csvData) {
             notMine: false,
             neither: true,
             name: line[0].replace(/"/g, ""),
-            team: line[1],
+            team: line[1] ? line[1].replace(/"/g, "") : "",
             position: line[2]
                 ? line[2].replace(/"/g, "")[0] + line[2].replace(/"/g, "")[1]
                 : "",
-            etrRank: line[3],
+            etrRank: line[3] ? line[3].replace(/"/g, "") : "",
             etrPositionRank: line[4] ? line[4].replace(/"/g, "") : "",
-            adp: line[5],
-            adpPosRank: line[6],
-            adpDiff: line[7],
+            adp: line[5] ? line[5].replace(/"/g, "") : "",
+            adpPosRank: line[6] ? line[6].replace(/"/g, "") : "",
+            adpDiff: line[7] ? line[7].replace(/"/g, "") : "",
             Notes: line[8],
             draftedAt: "",
         });
